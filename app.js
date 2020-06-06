@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const request = require('./util/request')
 const packageJSON = require('./package.json')
 const exec = require('child_process').exec
-const cache = require('apicache').middleware
+//const cache = require('apicache').middleware
 
 // version check
 exec('npm info NeteaseCloudMusicApi version', (err, stdout, stderr) => {
@@ -48,7 +48,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 // cache
-app.use(cache('2 minutes', ((req, res) => res.statusCode === 200)))
+//app.use(cache('2 minutes', ((req, res) => res.statusCode === 200)))
 
 // static
 app.use(express.static(path.join(__dirname, 'public')))
